@@ -45,7 +45,7 @@ namespace Business.Concrate
 
         public IDataResult<Customer> GetById(int userId)
         {
-            return new SuccessDataResult<Customer>(_customerDal.Get(cu=>cu.UserId==userId));
+            return new SuccessDataResult<Customer>(_customerDal.Get(cu=>cu.Id==userId));
         }
 
         

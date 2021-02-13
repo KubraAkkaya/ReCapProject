@@ -10,7 +10,7 @@ namespace Entities.Concrate
         public int Id { get; set; }
         public int CarId { get; set; }
         public int CustomerId { get; set; }
-        public DateTime RentDate { get; set; }//Kiralama Tarihi
-        public DateTime ReturnDate { get; set; }//Teslim Tarihi
+        public DateTime? RentDate { get; set; }//Kiralama Tarihi
+        public DateTime? ReturnDate { get; set; }//Teslim Tarihi
     }
 }

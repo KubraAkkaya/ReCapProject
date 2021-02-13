@@ -7,7 +7,7 @@ namespace Entities.Concrate
 {
     public class Customer:IEntity
     {
-        public int UserId { get; set; }
+        public int Id  { get; set; } 
         public string CompanyName { get; set; }
     }
 }
