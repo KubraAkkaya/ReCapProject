@@ -1,5 +1,6 @@
 ﻿using DataAccess.Abstract;
 using Entities.Concrate;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,22 +34,25 @@ namespace DataAccess.Concrate.InMemory
 
         public Car Get(Expression<Func<Car, bool>> filter)
         {
-            throw new NotImplementedException();
-        }
-
-        public List<Car> GetAll()
-        {
-            return _car;
-        }
+            var expression = filter.Compile();
+            var car = _car.SingleOrDefault(expression);
+            return car;
+        }     
 
         public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
         {
-            throw new NotImplementedException();
+            var expression = filter.Compile();
+            return filter == null ? _car : _car.Where(expression).ToList();
         }
 
         public List<Car> GetById(int carId)
         {
             return _car.Where(c => c.carId == carId).ToList();
+        }
+
+        public List<CarDetailDto> GetCarDetails()
+        {
+            return null;//Burada SQL işlemlri olmaz.
         }
 
         public void Update(Car car)
