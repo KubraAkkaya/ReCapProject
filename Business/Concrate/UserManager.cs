@@ -36,7 +36,7 @@ namespace Business.Concrate
         }
         
 
-        public IDataResult<List<User>> GetList()
+        public IDataResult<List<User>> GetAll()
         {
             if (DateTime.Now.Hour == 23)
             {
@@ -45,7 +45,7 @@ namespace Business.Concrate
             return new SuccessDataResult<List<User>>(_userDal.GetAll(), Messages.UsersListed);
         }
 
-        public IDataResult<User> Get(int id)
+        public IDataResult<User> GetById(int id)
         {
             return new SuccessDataResult<User>(_userDal.Get(c => c.Id == id));
         }
